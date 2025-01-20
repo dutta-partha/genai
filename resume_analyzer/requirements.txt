@@ -3,3 +3,6 @@ requests
 json
 PyMuPDF
 matplotlib
+datetime
+google-generativeai
+os
