@@ -164,7 +164,7 @@ def calculate_match_llm(extracted_resume_info, job_description_json, model_name)
         st.error(f"Could not parse LLM match responsei : {e}. Returning default values.")
         return {"score": 0, "assessment": "Not Suitable"}
 
-st.title("Resume Matching with Ollama")
+st.title("Resume Analyzer")
 
 model_name = 'gemini-pro' #st.selectbox("Select Model", ["llama3.2:3b-instruct-q4_K_M", "mistral:7b-instruct","llama3.2:1b", "llama2:7b-chat", "llama2:13b", "llama2:7b"])
 
