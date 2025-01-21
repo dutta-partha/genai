@@ -258,14 +258,17 @@ if uploaded_file and job_description_json:
                 st.write(extracted_resume_info)
 
             match_data = calculate_match_llm(extracted_resume_info, job_description_json, model_name)
-            st.write("\nMatch Result:")
+            st.markdown("## Match Result :")
             for key, value in match_data.items():
                 if isinstance(value, list):
                     st.markdown(f"**{key.capitalize()}:**")
                     for i, item in enumerate(value):
                         st.markdown(f"**Question {i+1}:** {item['question']}")
                 else:
-                    st.markdown(f"**{key.capitalize()}:** {value}")        
+                    if "score" in key:
+                        st.markdown(f"**{key.capitalize()}:** {value} out of 5")        
+                    else:
+                        st.markdown(f"**{key.capitalize()}:** {value}")        
 
         else:
             st.error("Could not extract information from the resume using the LLM.")
