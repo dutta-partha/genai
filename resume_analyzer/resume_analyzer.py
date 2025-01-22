@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import google.generativeai as genai
 import os
-from dateutil import parser
+from dateutil import parser as date_parser
 
 def extract_text_from_pdf(pdf_file):
     """Extracts text from uploaded PDF (optimized for text-based PDFs)."""
@@ -47,7 +47,7 @@ def parse_date(date_str):
     else: # Define the format to match the date string 
         # date_format = "%B %Y"
         # return datetime.strptime(date_str, date_format)
-	return parser.parse(date_str)
+        return date_parser.parse(date_str)
 
 def draw_charts(experiences, skills_data):
     try:
